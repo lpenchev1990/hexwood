@@ -1,0 +1,862 @@
+
+  <!--====== HEADER START ======-->
+  <header class="header-absolute header-two plus-three sticky-header sigma-header">
+    <div class="lr-topbar">
+      <div class="container container-custom-one">
+        <div class="row align-items-center">
+          <div class="col-lg-4">
+            <div class="lr-topbar-controls">
+              <ul>
+                <li>
+                    Свържете се с нас:
+                    <a href="#call">
+                     +359885110977
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="lr-topbar-controls style-2">
+              <ul>
+                  @if(auth()->check())
+
+                <li>
+                  <a href="my-account.html">
+                    Моят акаунт ({{auth()->user()->name}})
+                  </a>
+                </li>
+                  @endif
+                      @auth
+                          @if(auth()->user()->admin)
+                              <a href="{{ route('admin.dashboard') }}">Admin</a>
+                          @endif
+                      @endauth
+                <li>
+                  <a href="{{ route('blog') }}">
+                    Блог
+                  </a>
+                </li>
+                  @if(auth()->check())
+                      <li>
+                          <a href="{{route('logout')}}">
+                              Изход
+                          </a>
+                      </li>
+                  @else
+                      <li>
+                          <a href="{{route('register')}}">
+                              Регистрация
+                          </a>
+                      </li>
+                      <li>
+                          <a href="{{route('login')}}">
+                              Вход
+                          </a>
+                      </li>
+
+                  @endif
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container container-custom-one">
+      <div class="nav-container d-flex align-items-center">
+        <!-- Main Menu -->
+        <div class="nav-menu d-lg-flex align-items-center justify-content-center">
+          <!-- Navbar Close Icon -->
+          <div class="navbar-close">
+            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+          </div>
+          <!-- Off canvas Menu  -->
+          <div class="toggle">
+            <a href="#" id="offCanvasBtn"><i class="fal fa-bars"></i></a>
+          </div>
+          <!-- Mneu Items -->
+          <div class="sigma-header-nav">
+            <div class="sigma-header-nav-inner">
+              <nav>
+                <ul class="sigma-main-menu">
+                  {{-- <li class="menu-item menu-item-has-children">
+                    <a href="#">
+                      Home
+                    </a>
+                    <ul class="sub-menu">
+                      <li class="menu-item">
+                        <a href="index.html">Home 1</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="index-2.html">Home 2</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="index-3.html">Home 3</a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="index-4.html">Home 4</a>
+                      </li>
+                    </ul>
+                  </li> --}}
+                   {{-- <li class="menu-item menu-item-has-children menu-item-has-megamenu">
+                    <a href="#">
+                      Categories
+                    </a>
+                    <div class="sub-menu">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <ul class="sigm-megamenu-nav nav nav-tabs">
+                              <li class="nav-item">
+                                <a href="#tab1" class="nav-link active" data-toggle="tab"><i class="fal fa-female"></i>
+                                  Маси</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#tab2" class="nav-link" data-toggle="tab"><i class="fal fa-user"></i>
+                                  Рафтове</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#tab3" class="nav-link" data-toggle="tab"><i class="fal fa-baby"></i>
+                                  Bracelets</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#tab4" class="nav-link" data-toggle="tab"><i
+                                    class="fal fa-suitcase-rolling"></i> Pendants</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="#tab5" class="nav-link" data-toggle="tab"><i class="fal fa-badge-check"></i>
+                                  Necklaces</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-9">
+                            <div class="tab-content">
+                              <div class="tab-pane show active" id="tab1">
+                                <div class="row">
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-navbox menu-item-has-children">
+                                      <h5 class="sigma-title">Shop Pages</h5>
+                                      <ul class="sub-menu">
+                                        <li class="menu-item">
+                                          <a href="shop-left.html">Shop Left Sidebar</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-left-style-2.html">Shop Left Sidebar v2</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-right.html">Shop Right Sidebar</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-right-style-2.html">Shop Right Sidebar v2</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-detail.html">Product Details</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-navbox menu-item-has-children">
+                                      <h5 class="sigma-title">Other Shop Pages</h5>
+                                      <ul class="sub-menu">
+                                        <li class="menu-item">
+                                          <a href="my-account.html">My Account</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="checkout.html">Checkout</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="wishlist.html">Wishlist</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="cart.html">Cart</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="login.html">Login</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/01.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-item" id="tab2">
+                                <div class="row">
+                                  <div class="col-lg-3">
+                                    <div class="sigma-megamenu-navbox menu-item-has-children">
+                                      <h5 class="sigma-title">Type Of Рафтове</h5>
+                                      <ul class="sub-menu">
+                                        <li class="menu-item">
+                                          <a href="shop-left.html">Ruby Рафтове</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-left-style-2.html">Emareld Рафтове</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-left.html">Saphire Рафтове</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-left-style-2.html">Орех Рафтове</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="shop-left.html">Дъб Рафтове</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-5">
+                                    <div class="sigma-megamenu-navbox">
+                                      <h5 class="sigma-title">Size</h5>
+                                      <div class="row mb-3">
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-left.html">Hoop Рафтове</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-left-style-2.html">Dangle Рафтове</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-left.html">Stud Рафтове</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-left-style-2.html">Barbell Рафтове</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-left.html">Huggy Рафтове</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-left-style-2.html">Ear Thread Рафтове</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <h5 class="sigma-title">Top Picks</h5>
+                                      <div class="row">
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Jiara Blessing</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Hentry Firana</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Lucrative Li</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Mirana Go</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Fira Орех Маса</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Fanir Lo</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/02.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-item" id="tab3">
+                                <div class="row">
+                                  <div class="col-lg-8">
+                                    <div class="sigma-megamenu-navbox">
+                                      <h5 class="sigma-title">Type Of Рафтове</h5>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left.html">
+                                              <img src="assets/img/others/b-1.png" alt="img">
+                                              <span>Ruby</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left.html">
+                                              <img src="assets/img/others/b-2.png" alt="img">
+                                              <span>Emarald</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left-style-2.html">
+                                              <img src="assets/img/others/b-3.png" alt="img">
+                                              <span>Saphire</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left.html">
+                                              <img src="assets/img/others/b-4.png" alt="img">
+                                              <span>Орех</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left-style-2.html">
+                                              <img src="assets/img/others/b-5.png" alt="img">
+                                              <span>Topaz</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left.html">
+                                              <img src="assets/img/others/b-6.png" alt="img">
+                                              <span>Amber</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left-style-2.html">
+                                              <img src="assets/img/others/b-7.png" alt="img">
+                                              <span>Дъб</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-megamenu-image">
+                                            <a href="shop-left.html">
+                                              <img src="assets/img/others/b-8.png" alt="img">
+                                              <span>Ясен</span>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-navbox">
+                                      <h5 class="sigma-title">Top picks</h5>
+                                      <div class="row mb-4">
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Jiara Blessing</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Hentry Firana</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Lucrative Li</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div class="col-md-6 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Mirana Go</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Fira Орех Маса</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Fanir Lo</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <h5 class="sigma-title">Shape</h5>
+                                      <div class="row">
+                                        <div class="col-md-12 menu-item-has-children">
+                                          <ul class="sub-menu">
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Lira Jo</a>
+                                            </li>
+                                            <li class="menu-item">
+                                              <a href="shop-detail.html">Fandi Hambi</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-item" id="tab4">
+                                <div class="row">
+                                  <div class="col-lg-8">
+                                    <div class="sigma-megamenu-navbox">
+                                      <h5 class="sigma-title">Pendants Articles <a href="blog-grid.html">View All</a>
+                                      </h5>
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          <div class="sigma-blog-block">
+                                            <img src="assets/img/others/news-1.png" alt="img">
+                                            <p>Дъб Pendants </p>
+                                            <a href="blog-details.html">View Post</a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-blog-block">
+                                            <img src="assets/img/others/news-2.png" alt="img">
+                                            <p>Дъб Pendants </p>
+                                            <a href="blog-details.html">View Post</a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-blog-block">
+                                            <img src="assets/img/others/news-3.png" alt="img">
+                                            <p>Дъб Pendants </p>
+                                            <a href="blog-details.html">View Post</a>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div class="sigma-blog-block">
+                                            <img src="assets/img/others/news-4.png" alt="img">
+                                            <p>Дъб Pendants </p>
+                                            <a href="blog-details.html">View Post</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4">
+                                    <div class="sigma-megamenu-navbox menu-item-has-children">
+                                      <h5 class="sigma-title">Collections</h5>
+                                      <ul class="sub-menu">
+                                        <li class="menu-item">
+                                          <a href="blog-details.html">Vivamus suscipit tortor eget</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="blog-details.html">Vivamus suscipit tortor eget</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="blog-details.html">Vivamus suscipit tortor eget</a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="blog-details.html">Vivamus suscipit tortor eget</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-item" id="tab5">
+                                <div class="row justify-content-center">
+                                  <div class="col">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/a-1.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/a-2.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/a-3.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/a-4.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="sigma-megamenu-img">
+                                      <a href="#">
+                                        <img src="assets/img/others/a-5.png" alt="img">
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li> --}}
+
+                    @foreach($categories as $key => $cat)
+                        <li class="menu-item">
+                            <a href="{{ route('category.detail', ['slug' => $key]) }}">
+                                {{$cat['name']}}
+                            </a>
+
+                        @if($loop->iteration  == $countCategories)
+
+                            <li class="site-logo site-logo-text">
+                                <a href="{{route('home')}}">
+                                    <svg xmlns:mydata="http://www.w3.org/2000/svg" mydata:contrastcolor="ffffff"
+                                         mydata:template="Default" mydata:presentation="2.5" mydata:layouttype="undefined"
+                                         mydata:specialfontid="undefined" mydata:id1="675" mydata:id2="1020" mydata:companyname="hexwood"
+                                         mydata:companytagline="" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="65 124.81661737283707 420 220.36676525432586" class="watermark-logo"
+                                         style="opacity: 2.443; width: 200px">
+                                        <g fill="#222223" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                           stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                           font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                           style="mix-blend-mode: normal">
+                                            <g
+                                                data-paper-data="{&quot;isGlobalGroup&quot;:true,&quot;bounds&quot;:{&quot;x&quot;:65,&quot;y&quot;:124.81661737283707,&quot;width&quot;:420,&quot;height&quot;:220.36676525432586}}">
+                                                <g data-paper-data="{&quot;isPrimaryText&quot;:true}" fill-rule="nonzero">
+                                                    <path
+                                                        d="M120.02008,288.6372h2.32932v-0.32129h-25.22088v0.32129h2.32932c3.85542,0 6.90763,0.64257 6.90763,6.98795v20.56225h-25.38153v-20.56225c0,-6.34538 3.05221,-6.98795 6.90763,-6.98795h2.40964v-0.32129h-25.3012v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h25.3012v-0.32129h-2.40964c-3.85542,0 -6.90763,-0.64257 -6.90763,-6.90763v-20.64257h25.38153v20.64257c0,6.26506 -3.05221,6.90763 -6.90763,6.90763h-2.32932v0.32129h25.22088v-0.32129h-2.32932c-3.85542,0 -6.98795,-0.64257 -6.98795,-6.90763v-41.68675c0,-6.34538 3.13253,-6.98795 6.98795,-6.98795z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;H&quot;,&quot;glyphIndex&quot;:0,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M168.13253,329.52073c-0.88353,4.8996 -3.85542,14.6988 -17.83133,14.6988h-4.65863l5.62249,-8.51406v-19.03614c4.33735,0 9.39759,0.08032 9.39759,9.31727h0.32129v-19.11647h-0.32129c0,9.23695 -5.06024,9.31727 -9.39759,9.31727v-19.03614l-5.62249,-8.51406h3.53414c14.85944,0 16.94779,9.7992 17.83133,14.6988l0.32129,-0.08032l-1.76707,-14.93976h-40v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h41.1245l1.76707,-14.93976zM145.32129,344.21953h-3.7751v-55.58233h3.7751z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:1,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M180.18072,293.45647v10.28112l14.45783,21.68675l-6.34538,9.23695c-3.21285,4.57831 -8.83534,9.55823 -15.82329,9.55823v0.32129h21.1245v-0.32129h-2.32932c-1.76707,0 -3.37349,-0.96386 -4.17671,-2.48996c-0.80321,-1.60643 -0.72289,-3.45382 0.32129,-4.8996l7.5502,-10.92369l12.36948,18.63454h0.32129v-10.2008l-27.14859,-40.88353zM223.63454,339.40025l-18.63454,-28.03213l8.99598,-13.17269c3.21285,-4.57831 8.75502,-9.55823 15.82329,-9.55823v-0.32129h-21.20482v0.32129h2.40964c1.76707,0 3.29317,0.96386 4.17671,2.48996c0.80321,1.60643 0.64257,3.45382 -0.32129,4.8996l-10.2008,14.85944l-11.80723,-17.67068c-2.00803,-3.05221 -5.46185,-4.8996 -9.07631,-4.8996h-7.79116v0.32129c3.61446,0 7.06827,1.84739 9.07631,4.8996l30.76305,46.18474c2.00803,2.97189 5.38153,4.81928 9.07631,4.81928h7.79116v-0.32129c-3.69478,0 -7.06827,-1.84739 -9.07631,-4.81928z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;X&quot;,&quot;glyphIndex&quot;:2,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M235.92369,288.31591v0.32129c5.62249,0 8.19277,6.34538 10.04016,11.08434l17.83133,44.81928h0.32129l10.60241,-26.4257l10.52209,26.4257h0.32129l17.42972,-43.61446c1.84739,-4.73896 5.54217,-12.28916 13.73494,-12.28916v-0.32129zM267.32932,335.30386l-16.78715,-42.00803c-0.40161,-1.04418 -0.24096,-2.249 0.32129,-3.13253c0.64257,-0.96386 1.68675,-1.5261 2.81124,-1.5261h3.61446h0.08032c5.62249,0 8.11245,6.34538 9.95984,11.08434l7.14859,17.751zM302.59036,300.44443l-13.89558,34.85944l-16.70683,-42.00803c-0.40161,-1.04418 -0.32129,-2.249 0.32129,-3.13253c0.64257,-0.96386 1.68675,-1.5261 2.81124,-1.5261h19.51807c2.81124,0 5.54217,1.44578 7.14859,3.7751c1.60643,2.40964 1.92771,5.38153 0.80321,8.03213z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;W&quot;,&quot;glyphIndex&quot;:3,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M346.04418,287.75366c-13.9759,0 -25.3012,12.85141 -25.3012,28.6747c0,15.82329 11.3253,28.75502 25.3012,28.75502c13.9759,0 25.3012,-12.93173 25.3012,-28.75502c0,-15.82329 -11.3253,-28.6747 -25.3012,-28.6747zM346.04418,344.70145c-9.55823,0 -17.26908,-12.69076 -17.26908,-28.27309c0,-15.58233 7.71084,-28.19277 17.26908,-28.19277c9.55823,0 17.26908,12.61044 17.26908,28.19277c0,15.58233 -7.71084,28.27309 -17.26908,28.27309z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:4,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M401.46586,287.75366c-13.9759,0 -25.3012,12.85141 -25.3012,28.6747c0,15.82329 11.3253,28.75502 25.3012,28.75502c13.9759,0 25.3012,-12.93173 25.3012,-28.75502c0,-15.82329 -11.3253,-28.6747 -25.3012,-28.6747zM401.46586,344.70145c-9.55823,0 -17.26908,-12.69076 -17.26908,-28.27309c0,-15.58233 7.71084,-28.19277 17.26908,-28.19277c9.55823,0 17.26908,12.61044 17.26908,28.19277c0,15.58233 -7.71084,28.27309 -17.26908,28.27309z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:5,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                    <path
+                                                        d="M457.28916,288.31591h-26.50602v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h26.50602c16.94779,0 27.71084,-12.61044 27.71084,-28.11245c0,-15.50201 -10.76305,-28.11245 -27.71084,-28.11245zM450.54217,288.6372v55.58233h-3.7751v-55.58233zM456.48594,344.21953h-5.62249l5.62249,-8.51406v-38.55422l-5.62249,-8.51406h5.62249c14.37751,0 20.48193,14.21687 20.48193,27.79116c0,13.65462 -6.10442,27.79116 -20.48193,27.79116z"
+                                                        data-paper-data="{&quot;glyphName&quot;:&quot;D&quot;,&quot;glyphIndex&quot;:6,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:1}"
+                                                        style="fill: rgb(255, 255, 255);"></path>
+                                                </g>
+                                                <g data-paper-data="{&quot;isIcon&quot;:&quot;true&quot;,&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;60cPEVqYD5_E438LM06rhFd8uRQ9jIqrDNsor4YoES&quot;,&quot;source&quot;:&quot;ai&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;isDetailed&quot;:false,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;bounds&quot;:{&quot;x&quot;:193.3865401385182,&quot;y&quot;:124.81661737283707,&quot;width&quot;:163.22691972296363,&quot;height&quot;:134.19355525869435},&quot;fillRule&quot;:&quot;evenodd&quot;,&quot;suitableAsStandaloneIcon&quot;:true}"
+                                                   fill-rule="evenodd">
+                                                    <path
+                                                        d="M234.76172,132.47195c1.40656,-1.98139 3.22278,-4.51455 4.03572,-5.62893l1.47861,-2.0264h69.18655l0.61466,0.67547c0.33761,0.37166 3.49025,4.7283 7.00505,9.68175c3.5148,4.95346 8.16964,11.50552 10.34451,14.56013c4.10618,5.76854 11.50208,16.2735 20.71356,29.4206c2.9502,4.21043 6.08849,8.66856 6.9738,9.90679c0.88564,1.23823 1.55831,2.45414 1.49518,2.70185c-0.19288,0.75875 -18.50171,26.74945 -30.89357,43.85608c-1.86436,2.57338 -6.42898,8.88056 -10.14398,14.01584l-6.75479,9.33677l-33.80583,0.01945l-33.80647,0.01881l-1.075,-1.57616c-0.59106,-0.86682 -2.02152,-2.85934 -3.17878,-4.42817c-1.15757,-1.56851 -2.48284,-3.39142 -2.94542,-4.05102c-0.46259,-0.65928 -4.02584,-5.5902 -7.91842,-10.95757c-10.1215,-13.95655 -12.47995,-17.2485 -25.49102,-35.57646c-6.80785,-9.58958 -7.20953,-10.18606 -7.20953,-10.69965c0,-0.42815 3.91502,-6.22048 11.13204,-16.46934c1.56982,-2.22907 3.78566,-5.40371 4.92403,-7.0551c1.1387,-1.65108 3.36926,-4.82571 4.95678,-7.05478c2.49655,-3.50523 5.71626,-8.03867 20.3623,-28.66995zM245.92331,129.5629c0,-0.12398 1.72249,-0.26298 3.82754,-0.30921c3.08186,-0.06755 52.95503,-0.02493 53.93407,0.04623c1.40209,0.10208 -10.40317,8.93183 -16.48305,12.3287c-6.14492,3.43318 -8.36825,6.19571 -10.67256,13.26081c-0.50244,1.54007 -1.08201,2.97038 -1.28828,3.17824c-0.64908,0.65482 -1.27106,-0.19447 -2.14586,-2.92996c-2.26126,-7.07171 -4.388,-9.7619 -10.66044,-13.48538c-4.50755,-2.67577 -6.57562,-4.03754 -9.75695,-6.42719c-3.20301,-2.40559 -6.75447,-5.38276 -6.75447,-5.66225zM237.06698,136.18852c1.65108,-2.34431 3.3978,-4.81386 3.88142,-5.4872l0.87957,-1.22487l0.52156,2.09817c0.83463,3.35754 3.45646,10.85194 4.30001,12.29147c1.01316,1.7283 1.85129,2.35423 4.46611,3.33442c3.7335,1.39986 9.90105,4.50494 11.57158,5.82586c1.94661,1.53918 2.44936,2.64756 2.44936,5.39838c0,1.03037 0.04336,1.59305 -0.21264,1.92397c-0.34654,0.44824 -1.2427,0.47151 -3.53998,0.6545c-8.03574,0.64048 -11.29167,2.10378 -13.91191,6.25236l-1.20603,1.90962l-1.85065,0.20945c-1.9871,0.22476 -4.60064,0.02072 -6.29763,-0.49191c-0.57799,-0.17438 -2.46913,-1.32558 -4.20309,-2.55808c-4.98576,-3.54445 -7.47815,-4.5592 -11.91454,-4.8509l-2.75803,-0.18172l1.85738,-2.5874c1.02192,-1.42345 2.73581,-3.841 3.80905,-5.37297c1.07338,-1.53166 3.57247,-5.05643 5.55383,-7.83276c1.98135,-2.77633 4.95355,-6.96606 6.60463,-9.31037zM303.88833,141.97208c1.35363,-3.5608 3.2961,-9.40707 3.6082,-10.86189c0.40424,-1.88619 0.47757,-1.83697 3.35284,2.24947c1.16682,1.65806 3.22724,4.5686 4.57896,6.46743c1.35109,1.89882 4.65866,6.55956 7.34999,10.3572c2.69102,3.79767 5.5478,7.81965 6.348,8.93769c0.80083,1.11772 1.45597,2.0974 1.45597,2.17647c0,0.07907 -0.97107,0.14378 -2.15734,0.14378c-4.23848,0 -7.97293,1.39668 -12.11418,4.5305c-4.06027,3.07326 -4.6134,3.27474 -8.97557,3.27474h-3.75358l-1.50794,-2.23449c-1.58795,-2.35308 -2.78921,-3.45551 -4.58151,-4.20468c-1.74736,-0.72974 -6.17234,-1.61346 -9.08938,-1.81526c-2.50993,-0.17343 -3.50874,-0.17502 -3.87537,-0.65674c-0.28565,-0.37555 -0.18746,-1.04313 -0.12083,-2.31068c0.15462,-2.9443 0.62963,-3.7897 3.02002,-5.376c1.98232,-1.31551 6.92503,-3.78744 9.68235,-4.84235c3.86612,-1.47915 4.4406,-1.80216 5.29021,-2.97478c0.46449,-0.64124 1.1343,-1.92857 1.48913,-2.8604zM252.12084,170.96899c2.20005,-3.4335 4.24582,-4.31818 10.91421,-4.72147c5.39605,-0.32582 18.91201,-0.32423 23.71668,0.00351c2.3942,0.16323 5.07629,0.50657 5.96065,0.76353c3.36177,0.97617 5.08331,3.48578 12.10558,17.64795c2.53575,5.11328 3.7539,7.25627 3.68026,9.35367c-0.06854,1.94693 -1.25066,3.85528 -3.52532,8.06603c-3.84349,7.11408 -6.71494,12.0042 -8.08165,13.76239c-0.51614,0.66406 -1.61952,1.48212 -2.7264,2.02184c-2.86667,1.39763 -5.56343,1.58062 -21.22269,1.43907c-14.75419,-0.13326 -15.3156,-0.19 -18.1201,-1.83343c-0.71475,-0.41891 -1.63801,-1.20763 -2.05181,-1.75214c-1.67499,-2.20612 -7.69175,-12.44924 -10.19276,-17.35211c-2.1822,-4.27865 -2.17583,-4.98576 0.08894,-9.6068c2.80642,-5.72602 8.06889,-15.62898 9.45441,-17.79206zM324.03793,186.63974c6.29061,-9.2287 7.44468,-11.50176 10.01072,-19.7189c0.06472,-0.20626 0.17917,-0.37523 0.25504,-0.37523c0.07588,0 1.25513,1.6549 2.62056,3.67771c1.36575,2.02281 5.29085,7.65477 8.72212,12.51587l6.23896,8.83848l-0.51933,0.84642c-0.5595,0.91146 -7.13831,10.30498 -13.25327,18.92413c-2.07795,2.92884 -3.85369,5.32655 -3.94646,5.32879c-0.09245,0.00223 -0.34718,-0.70551 -0.56619,-1.57233c-0.7629,-3.02065 -2.74744,-7.68091 -4.3032,-10.10445c-0.86172,-1.34248 -3.15423,-4.68353 -5.09415,-7.4246c-1.93991,-2.74106 -3.52755,-5.21306 -3.52755,-5.49361c0,-0.27991 1.51336,-2.72927 3.36273,-5.44228zM206.28534,179.75488c3.52025,-5.03612 7.01318,-10.02507 7.76221,-11.087c0.68778,-0.97522 1.02253,-1.54492 1.29692,-1.51718c0.33985,0.03443 0.5872,0.98702 1.29931,3.22437c1.40375,4.41159 3.11014,7.59739 7.86126,14.67545c4.32376,6.44236 4.63586,6.99867 4.29061,7.65541c-0.20467,0.38957 -2.0193,3.00503 -4.03212,5.81209c-2.01292,2.80705 -4.1468,5.91411 -4.74181,6.90463c-1.23265,2.05245 -3.06574,6.37255 -3.79703,8.94943c-0.27229,0.95928 -0.59833,1.7413 -0.7247,1.73716c-0.20145,-0.00574 -2.96308,-3.82308 -14.49921,-20.04248c-1.54578,-2.17359 -2.81088,-4.14571 -2.81088,-4.3829c0,-0.23687 0.38158,-0.95768 0.84779,-1.60166c0.46625,-0.64398 3.72769,-5.29116 7.24766,-10.32729zM312.21354,174.95243c2.82906,-0.59743 6.45671,-2.22492 11.30888,-5.07406c1.15311,-0.67714 2.40473,-1.23121 2.78123,-1.23121c0.66694,0 0.67299,0.02646 0.23878,1.06544c-0.88595,2.12131 -11.5668,17.36135 -12.60322,17.98302c-0.41922,0.25153 -0.62518,0.17056 -1.0224,-0.40106c-0.88308,-1.27106 -6.05119,-10.97956 -6.05119,-11.36723c0,-0.24101 0.4578,-0.37714 1.27585,-0.38002c0.70169,-0.00255 2.53416,-0.27034 4.07206,-0.59489zM228.39683,177.95364c-3.5075,-4.94527 -5.58975,-8.28249 -5.58975,-8.95899c0,-0.70551 1.41998,-0.15048 5.30762,2.07445c5.30647,3.03659 9.65621,4.483 13.48184,4.483c0.72878,0 1.32463,0.12019 1.32463,0.2678c0,0.14729 -0.58691,1.32909 -1.30422,2.62661c-4.15049,7.50876 -5.08171,9.12891 -5.34026,9.28863c-0.57862,0.35738 -1.49391,-0.77884 -7.87984,-9.7815zM230.31602,204.52201c1.70559,-2.31132 3.37197,-4.50692 3.70257,-4.87832c0.3306,-0.37141 0.68925,-0.67554 0.79669,-0.67554c0.42305,0 1.55353,1.51622 3.91713,5.25387c1.35778,2.1465 2.86284,4.47822 3.3452,5.1815c0.40902,0.5968 0.67522,0.93633 0.59903,1.15821c-0.11254,0.32677 -0.96884,0.39723 -3.20811,0.65642c-1.48594,0.17184 -5.64536,1.08297 -9.24336,2.02503c-3.59768,0.94175 -6.62522,1.62844 -6.7282,1.52547c-0.30172,-0.3019 0.45359,-1.69252 2.14095,-3.942c0.86746,-1.15598 2.97252,-3.993 4.67811,-6.30464zM307.41811,209.55686c0.31881,-0.45748 2.00909,-3.02703 3.75613,-5.71008c1.74736,-2.68304 3.2926,-4.87864 3.43478,-4.87864c0.35738,0 1.09795,0.86141 3.8709,4.50341c6.69071,8.78748 8.05232,10.77426 7.65509,11.17148c-0.13453,0.13485 -3.46411,-0.57066 -7.39814,-1.56787c-3.93434,-0.99722 -8.15178,-1.89783 -9.37216,-2.0008c-1.22037,-0.10297 -2.28805,-0.29936 -2.37285,-0.43644c-0.08449,-0.13677 0.10744,-0.62326 0.42624,-1.08106zM297.96848,222.47825c1.34885,-0.69754 3.68058,-2.99961 4.56302,-4.50628l0.78936,-1.3463l4.249,0.10234l4.24932,0.10265l3.30215,1.55703c5.2494,2.47454 7.10515,2.93936 11.75489,2.94287c2.55074,0.00223 3.88557,0.10967 3.76984,0.3035c-0.34112,0.57161 -8.49577,12.02109 -10.71559,15.04462c-1.22611,1.6702 -4.34528,5.99317 -6.93141,9.6068c-2.58644,3.61363 -4.82093,6.57052 -4.96535,6.57052c-0.14473,0 -0.98574,-2.10346 -1.86978,-4.67429c-3.19982,-9.30967 -3.27729,-9.41392 -8.37272,-11.22823c-7.36498,-2.62279 -12.4384,-5.78914 -13.15826,-8.21267c-0.18012,-0.60636 -0.28374,-1.77797 -0.23017,-2.60366l0.09723,-1.50092l1.50092,-0.07364c5.07885,-0.24867 10.11274,-1.12506 11.96754,-2.08433zM232.86421,219.06643c1.48594,-0.69467 3.44466,-1.50858 4.35294,-1.80857c1.21623,-0.40137 2.61641,-0.5493 5.31348,-0.56109l3.6624,-0.01626l1.41803,1.9871c1.62302,2.27497 3.08346,3.43733 5.41231,4.30862c1.98359,0.74218 6.50549,1.5057 8.9609,1.51272c3.03691,0.00893 3.15232,0.08703 3.15232,2.14331c0,3.17018 -0.88467,4.35484 -4.95355,6.63397c-2.94638,1.65044 -6.41495,3.17751 -9.64729,4.24741c-1.34311,0.44473 -2.65021,1.03866 -2.90429,1.3208c-0.94621,1.04726 -2.32726,4.25346 -3.87154,8.98673c-0.87415,2.67953 -1.7244,4.87258 -1.88954,4.87322c-0.16514,0.00095 -1.1751,-1.24588 -2.24437,-2.77071c-1.06927,-1.52451 -4.78682,-6.68944 -8.26113,-11.47785c-7.17297,-9.88575 -12.16035,-16.86306 -12.16002,-17.01131c0,-0.05515 1.65506,-0.11063 3.67755,-0.12242c4.29501,-0.0255 6.10389,-0.43262 9.98181,-2.24564zM272.94311,230.34024c0.37395,-1.15598 0.80179,-2.33809 0.95035,-2.62693c0.43484,-0.84451 1.6278,-0.66311 1.9753,0.30031c2.42131,6.71143 3.88748,9.57523 5.82867,11.38699c0.38575,0.35961 3.26805,2.16563 6.40506,4.01309c4.96981,2.92661 15.70772,10.27851 16.21781,11.10358c0.11445,0.18586 -10.48574,0.2866 -29.48414,0.28023l-29.66363,-0.00925l0.78968,-0.66598c4.19608,-3.53871 8.70267,-6.61579 16.05235,-10.95916c3.83073,-2.26414 5.5121,-3.44785 6.62345,-4.66344c1.61091,-1.76298 3.22629,-4.82444 4.30511,-8.15944z"
+                                                        data-paper-data="{&quot;isPathIcon&quot;:true}" style="fill: rgb(255, 255, 255);">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- from pushed-item -->
+          <div class="nav-pushed-item"></div>
+        </div>
+        <!-- Site Logo -->
+        <div class="site-logo site-logo-text d-block d-lg-none">
+          <a href="index.html">
+            <svg xmlns:mydata="http://www.w3.org/2000/svg" mydata:contrastcolor="ffffff" mydata:template="Default"
+              mydata:presentation="2.5" mydata:layouttype="undefined" mydata:specialfontid="undefined" mydata:id1="675"
+              mydata:id2="1020" mydata:companyname="hexwood" mydata:companytagline="" version="1.1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="65 124.81661737283707 420 220.36676525432586" class="watermark-logo"
+              style="opacity: 2.443; width: 200px">
+              <g fill="#222223" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <g
+                  data-paper-data="{&quot;isGlobalGroup&quot;:true,&quot;bounds&quot;:{&quot;x&quot;:65,&quot;y&quot;:124.81661737283707,&quot;width&quot;:420,&quot;height&quot;:220.36676525432586}}">
+                  <g data-paper-data="{&quot;isPrimaryText&quot;:true}" fill-rule="nonzero">
+                    <path
+                      d="M120.02008,288.6372h2.32932v-0.32129h-25.22088v0.32129h2.32932c3.85542,0 6.90763,0.64257 6.90763,6.98795v20.56225h-25.38153v-20.56225c0,-6.34538 3.05221,-6.98795 6.90763,-6.98795h2.40964v-0.32129h-25.3012v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h25.3012v-0.32129h-2.40964c-3.85542,0 -6.90763,-0.64257 -6.90763,-6.90763v-20.64257h25.38153v20.64257c0,6.26506 -3.05221,6.90763 -6.90763,6.90763h-2.32932v0.32129h25.22088v-0.32129h-2.32932c-3.85542,0 -6.98795,-0.64257 -6.98795,-6.90763v-41.68675c0,-6.34538 3.13253,-6.98795 6.98795,-6.98795z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;H&quot;,&quot;glyphIndex&quot;:0,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M168.13253,329.52073c-0.88353,4.8996 -3.85542,14.6988 -17.83133,14.6988h-4.65863l5.62249,-8.51406v-19.03614c4.33735,0 9.39759,0.08032 9.39759,9.31727h0.32129v-19.11647h-0.32129c0,9.23695 -5.06024,9.31727 -9.39759,9.31727v-19.03614l-5.62249,-8.51406h3.53414c14.85944,0 16.94779,9.7992 17.83133,14.6988l0.32129,-0.08032l-1.76707,-14.93976h-40v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h41.1245l1.76707,-14.93976zM145.32129,344.21953h-3.7751v-55.58233h3.7751z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:1,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M180.18072,293.45647v10.28112l14.45783,21.68675l-6.34538,9.23695c-3.21285,4.57831 -8.83534,9.55823 -15.82329,9.55823v0.32129h21.1245v-0.32129h-2.32932c-1.76707,0 -3.37349,-0.96386 -4.17671,-2.48996c-0.80321,-1.60643 -0.72289,-3.45382 0.32129,-4.8996l7.5502,-10.92369l12.36948,18.63454h0.32129v-10.2008l-27.14859,-40.88353zM223.63454,339.40025l-18.63454,-28.03213l8.99598,-13.17269c3.21285,-4.57831 8.75502,-9.55823 15.82329,-9.55823v-0.32129h-21.20482v0.32129h2.40964c1.76707,0 3.29317,0.96386 4.17671,2.48996c0.80321,1.60643 0.64257,3.45382 -0.32129,4.8996l-10.2008,14.85944l-11.80723,-17.67068c-2.00803,-3.05221 -5.46185,-4.8996 -9.07631,-4.8996h-7.79116v0.32129c3.61446,0 7.06827,1.84739 9.07631,4.8996l30.76305,46.18474c2.00803,2.97189 5.38153,4.81928 9.07631,4.81928h7.79116v-0.32129c-3.69478,0 -7.06827,-1.84739 -9.07631,-4.81928z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;X&quot;,&quot;glyphIndex&quot;:2,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M235.92369,288.31591v0.32129c5.62249,0 8.19277,6.34538 10.04016,11.08434l17.83133,44.81928h0.32129l10.60241,-26.4257l10.52209,26.4257h0.32129l17.42972,-43.61446c1.84739,-4.73896 5.54217,-12.28916 13.73494,-12.28916v-0.32129zM267.32932,335.30386l-16.78715,-42.00803c-0.40161,-1.04418 -0.24096,-2.249 0.32129,-3.13253c0.64257,-0.96386 1.68675,-1.5261 2.81124,-1.5261h3.61446h0.08032c5.62249,0 8.11245,6.34538 9.95984,11.08434l7.14859,17.751zM302.59036,300.44443l-13.89558,34.85944l-16.70683,-42.00803c-0.40161,-1.04418 -0.32129,-2.249 0.32129,-3.13253c0.64257,-0.96386 1.68675,-1.5261 2.81124,-1.5261h19.51807c2.81124,0 5.54217,1.44578 7.14859,3.7751c1.60643,2.40964 1.92771,5.38153 0.80321,8.03213z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;W&quot;,&quot;glyphIndex&quot;:3,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M346.04418,287.75366c-13.9759,0 -25.3012,12.85141 -25.3012,28.6747c0,15.82329 11.3253,28.75502 25.3012,28.75502c13.9759,0 25.3012,-12.93173 25.3012,-28.75502c0,-15.82329 -11.3253,-28.6747 -25.3012,-28.6747zM346.04418,344.70145c-9.55823,0 -17.26908,-12.69076 -17.26908,-28.27309c0,-15.58233 7.71084,-28.19277 17.26908,-28.19277c9.55823,0 17.26908,12.61044 17.26908,28.19277c0,15.58233 -7.71084,28.27309 -17.26908,28.27309z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:4,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M401.46586,287.75366c-13.9759,0 -25.3012,12.85141 -25.3012,28.6747c0,15.82329 11.3253,28.75502 25.3012,28.75502c13.9759,0 25.3012,-12.93173 25.3012,-28.75502c0,-15.82329 -11.3253,-28.6747 -25.3012,-28.6747zM401.46586,344.70145c-9.55823,0 -17.26908,-12.69076 -17.26908,-28.27309c0,-15.58233 7.71084,-28.19277 17.26908,-28.19277c9.55823,0 17.26908,12.61044 17.26908,28.19277c0,15.58233 -7.71084,28.27309 -17.26908,28.27309z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:5,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                    <path
+                      d="M457.28916,288.31591h-26.50602v0.32129h2.32932c3.85542,0 6.98795,0.64257 6.98795,6.98795v41.68675c0,6.26506 -3.13253,6.90763 -6.98795,6.90763h-2.32932v0.32129h26.50602c16.94779,0 27.71084,-12.61044 27.71084,-28.11245c0,-15.50201 -10.76305,-28.11245 -27.71084,-28.11245zM450.54217,288.6372v55.58233h-3.7751v-55.58233zM456.48594,344.21953h-5.62249l5.62249,-8.51406v-38.55422l-5.62249,-8.51406h5.62249c14.37751,0 20.48193,14.21687 20.48193,27.79116c0,13.65462 -6.10442,27.79116 -20.48193,27.79116z"
+                      data-paper-data="{&quot;glyphName&quot;:&quot;D&quot;,&quot;glyphIndex&quot;:6,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:1}"
+                      style="fill: rgb(255, 255, 255);"></path>
+                  </g>
+                  <g data-paper-data="{&quot;isIcon&quot;:&quot;true&quot;,&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;60cPEVqYD5_E438LM06rhFd8uRQ9jIqrDNsor4YoES&quot;,&quot;source&quot;:&quot;ai&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;isDetailed&quot;:false,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;bounds&quot;:{&quot;x&quot;:193.3865401385182,&quot;y&quot;:124.81661737283707,&quot;width&quot;:163.22691972296363,&quot;height&quot;:134.19355525869435},&quot;fillRule&quot;:&quot;evenodd&quot;,&quot;suitableAsStandaloneIcon&quot;:true}"
+                    fill-rule="evenodd">
+                    <path
+                      d="M234.76172,132.47195c1.40656,-1.98139 3.22278,-4.51455 4.03572,-5.62893l1.47861,-2.0264h69.18655l0.61466,0.67547c0.33761,0.37166 3.49025,4.7283 7.00505,9.68175c3.5148,4.95346 8.16964,11.50552 10.34451,14.56013c4.10618,5.76854 11.50208,16.2735 20.71356,29.4206c2.9502,4.21043 6.08849,8.66856 6.9738,9.90679c0.88564,1.23823 1.55831,2.45414 1.49518,2.70185c-0.19288,0.75875 -18.50171,26.74945 -30.89357,43.85608c-1.86436,2.57338 -6.42898,8.88056 -10.14398,14.01584l-6.75479,9.33677l-33.80583,0.01945l-33.80647,0.01881l-1.075,-1.57616c-0.59106,-0.86682 -2.02152,-2.85934 -3.17878,-4.42817c-1.15757,-1.56851 -2.48284,-3.39142 -2.94542,-4.05102c-0.46259,-0.65928 -4.02584,-5.5902 -7.91842,-10.95757c-10.1215,-13.95655 -12.47995,-17.2485 -25.49102,-35.57646c-6.80785,-9.58958 -7.20953,-10.18606 -7.20953,-10.69965c0,-0.42815 3.91502,-6.22048 11.13204,-16.46934c1.56982,-2.22907 3.78566,-5.40371 4.92403,-7.0551c1.1387,-1.65108 3.36926,-4.82571 4.95678,-7.05478c2.49655,-3.50523 5.71626,-8.03867 20.3623,-28.66995zM245.92331,129.5629c0,-0.12398 1.72249,-0.26298 3.82754,-0.30921c3.08186,-0.06755 52.95503,-0.02493 53.93407,0.04623c1.40209,0.10208 -10.40317,8.93183 -16.48305,12.3287c-6.14492,3.43318 -8.36825,6.19571 -10.67256,13.26081c-0.50244,1.54007 -1.08201,2.97038 -1.28828,3.17824c-0.64908,0.65482 -1.27106,-0.19447 -2.14586,-2.92996c-2.26126,-7.07171 -4.388,-9.7619 -10.66044,-13.48538c-4.50755,-2.67577 -6.57562,-4.03754 -9.75695,-6.42719c-3.20301,-2.40559 -6.75447,-5.38276 -6.75447,-5.66225zM237.06698,136.18852c1.65108,-2.34431 3.3978,-4.81386 3.88142,-5.4872l0.87957,-1.22487l0.52156,2.09817c0.83463,3.35754 3.45646,10.85194 4.30001,12.29147c1.01316,1.7283 1.85129,2.35423 4.46611,3.33442c3.7335,1.39986 9.90105,4.50494 11.57158,5.82586c1.94661,1.53918 2.44936,2.64756 2.44936,5.39838c0,1.03037 0.04336,1.59305 -0.21264,1.92397c-0.34654,0.44824 -1.2427,0.47151 -3.53998,0.6545c-8.03574,0.64048 -11.29167,2.10378 -13.91191,6.25236l-1.20603,1.90962l-1.85065,0.20945c-1.9871,0.22476 -4.60064,0.02072 -6.29763,-0.49191c-0.57799,-0.17438 -2.46913,-1.32558 -4.20309,-2.55808c-4.98576,-3.54445 -7.47815,-4.5592 -11.91454,-4.8509l-2.75803,-0.18172l1.85738,-2.5874c1.02192,-1.42345 2.73581,-3.841 3.80905,-5.37297c1.07338,-1.53166 3.57247,-5.05643 5.55383,-7.83276c1.98135,-2.77633 4.95355,-6.96606 6.60463,-9.31037zM303.88833,141.97208c1.35363,-3.5608 3.2961,-9.40707 3.6082,-10.86189c0.40424,-1.88619 0.47757,-1.83697 3.35284,2.24947c1.16682,1.65806 3.22724,4.5686 4.57896,6.46743c1.35109,1.89882 4.65866,6.55956 7.34999,10.3572c2.69102,3.79767 5.5478,7.81965 6.348,8.93769c0.80083,1.11772 1.45597,2.0974 1.45597,2.17647c0,0.07907 -0.97107,0.14378 -2.15734,0.14378c-4.23848,0 -7.97293,1.39668 -12.11418,4.5305c-4.06027,3.07326 -4.6134,3.27474 -8.97557,3.27474h-3.75358l-1.50794,-2.23449c-1.58795,-2.35308 -2.78921,-3.45551 -4.58151,-4.20468c-1.74736,-0.72974 -6.17234,-1.61346 -9.08938,-1.81526c-2.50993,-0.17343 -3.50874,-0.17502 -3.87537,-0.65674c-0.28565,-0.37555 -0.18746,-1.04313 -0.12083,-2.31068c0.15462,-2.9443 0.62963,-3.7897 3.02002,-5.376c1.98232,-1.31551 6.92503,-3.78744 9.68235,-4.84235c3.86612,-1.47915 4.4406,-1.80216 5.29021,-2.97478c0.46449,-0.64124 1.1343,-1.92857 1.48913,-2.8604zM252.12084,170.96899c2.20005,-3.4335 4.24582,-4.31818 10.91421,-4.72147c5.39605,-0.32582 18.91201,-0.32423 23.71668,0.00351c2.3942,0.16323 5.07629,0.50657 5.96065,0.76353c3.36177,0.97617 5.08331,3.48578 12.10558,17.64795c2.53575,5.11328 3.7539,7.25627 3.68026,9.35367c-0.06854,1.94693 -1.25066,3.85528 -3.52532,8.06603c-3.84349,7.11408 -6.71494,12.0042 -8.08165,13.76239c-0.51614,0.66406 -1.61952,1.48212 -2.7264,2.02184c-2.86667,1.39763 -5.56343,1.58062 -21.22269,1.43907c-14.75419,-0.13326 -15.3156,-0.19 -18.1201,-1.83343c-0.71475,-0.41891 -1.63801,-1.20763 -2.05181,-1.75214c-1.67499,-2.20612 -7.69175,-12.44924 -10.19276,-17.35211c-2.1822,-4.27865 -2.17583,-4.98576 0.08894,-9.6068c2.80642,-5.72602 8.06889,-15.62898 9.45441,-17.79206zM324.03793,186.63974c6.29061,-9.2287 7.44468,-11.50176 10.01072,-19.7189c0.06472,-0.20626 0.17917,-0.37523 0.25504,-0.37523c0.07588,0 1.25513,1.6549 2.62056,3.67771c1.36575,2.02281 5.29085,7.65477 8.72212,12.51587l6.23896,8.83848l-0.51933,0.84642c-0.5595,0.91146 -7.13831,10.30498 -13.25327,18.92413c-2.07795,2.92884 -3.85369,5.32655 -3.94646,5.32879c-0.09245,0.00223 -0.34718,-0.70551 -0.56619,-1.57233c-0.7629,-3.02065 -2.74744,-7.68091 -4.3032,-10.10445c-0.86172,-1.34248 -3.15423,-4.68353 -5.09415,-7.4246c-1.93991,-2.74106 -3.52755,-5.21306 -3.52755,-5.49361c0,-0.27991 1.51336,-2.72927 3.36273,-5.44228zM206.28534,179.75488c3.52025,-5.03612 7.01318,-10.02507 7.76221,-11.087c0.68778,-0.97522 1.02253,-1.54492 1.29692,-1.51718c0.33985,0.03443 0.5872,0.98702 1.29931,3.22437c1.40375,4.41159 3.11014,7.59739 7.86126,14.67545c4.32376,6.44236 4.63586,6.99867 4.29061,7.65541c-0.20467,0.38957 -2.0193,3.00503 -4.03212,5.81209c-2.01292,2.80705 -4.1468,5.91411 -4.74181,6.90463c-1.23265,2.05245 -3.06574,6.37255 -3.79703,8.94943c-0.27229,0.95928 -0.59833,1.7413 -0.7247,1.73716c-0.20145,-0.00574 -2.96308,-3.82308 -14.49921,-20.04248c-1.54578,-2.17359 -2.81088,-4.14571 -2.81088,-4.3829c0,-0.23687 0.38158,-0.95768 0.84779,-1.60166c0.46625,-0.64398 3.72769,-5.29116 7.24766,-10.32729zM312.21354,174.95243c2.82906,-0.59743 6.45671,-2.22492 11.30888,-5.07406c1.15311,-0.67714 2.40473,-1.23121 2.78123,-1.23121c0.66694,0 0.67299,0.02646 0.23878,1.06544c-0.88595,2.12131 -11.5668,17.36135 -12.60322,17.98302c-0.41922,0.25153 -0.62518,0.17056 -1.0224,-0.40106c-0.88308,-1.27106 -6.05119,-10.97956 -6.05119,-11.36723c0,-0.24101 0.4578,-0.37714 1.27585,-0.38002c0.70169,-0.00255 2.53416,-0.27034 4.07206,-0.59489zM228.39683,177.95364c-3.5075,-4.94527 -5.58975,-8.28249 -5.58975,-8.95899c0,-0.70551 1.41998,-0.15048 5.30762,2.07445c5.30647,3.03659 9.65621,4.483 13.48184,4.483c0.72878,0 1.32463,0.12019 1.32463,0.2678c0,0.14729 -0.58691,1.32909 -1.30422,2.62661c-4.15049,7.50876 -5.08171,9.12891 -5.34026,9.28863c-0.57862,0.35738 -1.49391,-0.77884 -7.87984,-9.7815zM230.31602,204.52201c1.70559,-2.31132 3.37197,-4.50692 3.70257,-4.87832c0.3306,-0.37141 0.68925,-0.67554 0.79669,-0.67554c0.42305,0 1.55353,1.51622 3.91713,5.25387c1.35778,2.1465 2.86284,4.47822 3.3452,5.1815c0.40902,0.5968 0.67522,0.93633 0.59903,1.15821c-0.11254,0.32677 -0.96884,0.39723 -3.20811,0.65642c-1.48594,0.17184 -5.64536,1.08297 -9.24336,2.02503c-3.59768,0.94175 -6.62522,1.62844 -6.7282,1.52547c-0.30172,-0.3019 0.45359,-1.69252 2.14095,-3.942c0.86746,-1.15598 2.97252,-3.993 4.67811,-6.30464zM307.41811,209.55686c0.31881,-0.45748 2.00909,-3.02703 3.75613,-5.71008c1.74736,-2.68304 3.2926,-4.87864 3.43478,-4.87864c0.35738,0 1.09795,0.86141 3.8709,4.50341c6.69071,8.78748 8.05232,10.77426 7.65509,11.17148c-0.13453,0.13485 -3.46411,-0.57066 -7.39814,-1.56787c-3.93434,-0.99722 -8.15178,-1.89783 -9.37216,-2.0008c-1.22037,-0.10297 -2.28805,-0.29936 -2.37285,-0.43644c-0.08449,-0.13677 0.10744,-0.62326 0.42624,-1.08106zM297.96848,222.47825c1.34885,-0.69754 3.68058,-2.99961 4.56302,-4.50628l0.78936,-1.3463l4.249,0.10234l4.24932,0.10265l3.30215,1.55703c5.2494,2.47454 7.10515,2.93936 11.75489,2.94287c2.55074,0.00223 3.88557,0.10967 3.76984,0.3035c-0.34112,0.57161 -8.49577,12.02109 -10.71559,15.04462c-1.22611,1.6702 -4.34528,5.99317 -6.93141,9.6068c-2.58644,3.61363 -4.82093,6.57052 -4.96535,6.57052c-0.14473,0 -0.98574,-2.10346 -1.86978,-4.67429c-3.19982,-9.30967 -3.27729,-9.41392 -8.37272,-11.22823c-7.36498,-2.62279 -12.4384,-5.78914 -13.15826,-8.21267c-0.18012,-0.60636 -0.28374,-1.77797 -0.23017,-2.60366l0.09723,-1.50092l1.50092,-0.07364c5.07885,-0.24867 10.11274,-1.12506 11.96754,-2.08433zM232.86421,219.06643c1.48594,-0.69467 3.44466,-1.50858 4.35294,-1.80857c1.21623,-0.40137 2.61641,-0.5493 5.31348,-0.56109l3.6624,-0.01626l1.41803,1.9871c1.62302,2.27497 3.08346,3.43733 5.41231,4.30862c1.98359,0.74218 6.50549,1.5057 8.9609,1.51272c3.03691,0.00893 3.15232,0.08703 3.15232,2.14331c0,3.17018 -0.88467,4.35484 -4.95355,6.63397c-2.94638,1.65044 -6.41495,3.17751 -9.64729,4.24741c-1.34311,0.44473 -2.65021,1.03866 -2.90429,1.3208c-0.94621,1.04726 -2.32726,4.25346 -3.87154,8.98673c-0.87415,2.67953 -1.7244,4.87258 -1.88954,4.87322c-0.16514,0.00095 -1.1751,-1.24588 -2.24437,-2.77071c-1.06927,-1.52451 -4.78682,-6.68944 -8.26113,-11.47785c-7.17297,-9.88575 -12.16035,-16.86306 -12.16002,-17.01131c0,-0.05515 1.65506,-0.11063 3.67755,-0.12242c4.29501,-0.0255 6.10389,-0.43262 9.98181,-2.24564zM272.94311,230.34024c0.37395,-1.15598 0.80179,-2.33809 0.95035,-2.62693c0.43484,-0.84451 1.6278,-0.66311 1.9753,0.30031c2.42131,6.71143 3.88748,9.57523 5.82867,11.38699c0.38575,0.35961 3.26805,2.16563 6.40506,4.01309c4.96981,2.92661 15.70772,10.27851 16.21781,11.10358c0.11445,0.18586 -10.48574,0.2866 -29.48414,0.28023l-29.66363,-0.00925l0.78968,-0.66598c4.19608,-3.53871 8.70267,-6.61579 16.05235,-10.95916c3.83073,-2.26414 5.5121,-3.44785 6.62345,-4.66344c1.61091,-1.76298 3.22629,-4.82444 4.30511,-8.15944z"
+                      data-paper-data="{&quot;isPathIcon&quot;:true}" style="fill: rgb(255, 255, 255);"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+
+            <div class="site-logo-text">
+              <h3>Laramiss</h3>
+              <h6>Luxury Pieces</h6>
+            </div>
+          </a>
+        </div>
+        <!-- Navbar Toggler -->
+        <div class="sigma-mobile-header">
+          <div class="container">
+            <div class="sigma-mobile-header-inner">
+              <div class="sigma-hamburger-menu">
+                <div class="sigma-menu-btn">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile Menu Start -->
+        <aside class="sigma-mobile-menu">
+          <ul class="sigma-main-menu">
+            <li class="menu-item menu-item-has-children">
+              <a href="#">
+                Home
+              </a>
+              <ul class="sub-menu">
+                <li class="menu-item">
+                  <a href="index.html">Home 1</a>
+                </li>
+                <li class="menu-item">
+                  <a href="index-2.html">Home 2</a>
+                </li>
+                <li class="menu-item">
+                  <a href="index-3.html">Home 3</a>
+                </li>
+                <li class="menu-item">
+                  <a href="index-4.html">Home 4</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="#">Shop</a>
+              <ul class="sub-menu">
+                <li class="menu-item">
+                  <a href="shop-left.html">Shop Left Sidebar</a>
+                </li>
+                <li class="menu-item">
+                  <a href="shop-left-style-2.html">Shop Left Sidebar v2</a>
+                </li>
+                <li class="menu-item">
+                  <a href="shop-right.html">Shop Right Sidebar</a>
+                </li>
+                <li class="menu-item">
+                  <a href="shop-right-style-2.html">Shop Right Sidebar v2</a>
+                </li>
+                <li class="menu-item">
+                  <a href="shop-detail.html">Product Details</a>
+                </li>
+                <li class="menu-item">
+                  <a href="my-account.html">My Account</a>
+                </li>
+                <li class="menu-item">
+                  <a href="checkout.html">Checkout</a>
+                </li>
+                <li class="menu-item">
+                  <a href="wishlist.html">Wishlist</a>
+                </li>
+                <li class="menu-item">
+                  <a href="cart.html">Cart</a>
+                </li>
+                <li class="menu-item">
+                  <a href="login.html">Login</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="#">
+                Blog
+              </a>
+              <ul class="sub-menu">
+                <li class="menu-item"> <a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
+                </li>
+                <li class="menu-item"> <a href="blog-details.html">Blog Details</a>
+                </li>
+                <li class="menu-item"> <a href="blog-grid.html">Blog Grid</a>
+                </li>
+                <li class="menu-item"> <a href="blog-list.html">Blog List</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <a href="#">
+                Pages
+              </a>
+              <ul class="sub-menu">
+                <li class="menu-item">
+                  <a href="classification.html">Classification</a>
+                </li>
+                <li class="menu-item">
+                  <a href="my-account.html">Account</a>
+                </li>
+                <li class="menu-item">
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li class="menu-item">
+                  <a href="team.html">Team</a>
+                </li>
+                <li class="menu-item">
+                  <a href="404.html">Error 404</a>
+                </li>
+                <li class="menu-item">
+                  <a href="coming-soon.html">Coming Soon</a>
+                </li>
+                <li class="menu-item">
+                  <a href="typography.html">Typography</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="about.html">
+                About
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="contact.html">
+                Contact
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="shop-left.html">
+                Орех
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="shop-left.html">
+                Accessories
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <!-- Mobile Menu End -->
+      </div>
+    </div>
+  </header>
+  <!--====== HEADER END ======-->
+  <div class="offcanvas-wrapper">
+      <div class="offcanvas-overly"></div>
+      <div class="offcanvas-widget">
+          <a href="#" class="offcanvas-close"><i class="fal fa-times"></i></a>
+          <!-- About Widget -->
+          <div class="widget about-widget">
+              <h5 class="widget-title">About us</h5>
+              <p>HEXWOOD е студио за луксозни мебели и интериорни обекти, създадени от масивно дърво с ясно изразен характер.
+              </p>
+              <p>Работим както по индивидуални поръчки, така и по лимитирани серии – всяка с уникална структура, естествени
+                  несъвършенства и премерен дизайн.</p>
+              <p>Това не са мебели за всеки. Това са мебели за хора, които разбират материала.</p>
+          </div>
+          <!-- Nav Widget -->
+          <div class="widget nav-widget">
+              <h5 class="widget-title">Our pages</h5>
+              <ul>
+                  <li><a href="about.html">About Us</a>
+                  </li>
+                  <li><a href="classification.html">Classification</a>
+                  </li>
+                  <li>
+                      <a href="shop-left.html">Shop</a>
+                      <ul class="submenu">
+                          <li><a href="shop-left.html">Shop Left Sidebar</a>
+                          </li>
+                          <li><a href="shop-left-style-2.html">Shop Left Sidebar v2</a>
+                          </li>
+                          <li><a href="shop-right.html">Shop Right Sidebar</a>
+                          </li>
+                          <li><a href="shop-right-style-2.html">Shop Right Sidebar v2</a>
+                          </li>
+                          <li><a href="shop-detail.html">Shop Detail</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="blog-grid.html">Blog</a>
+                      <ul class="submenu">
+                          <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
+                          </li>
+                          <li><a href="blog-details.html">Blog Details</a>
+                          </li>
+                          <li><a href="blog-grid.html">Blog Grid</a>
+                          </li>
+                          <li><a href="blog-list.html">Blog List</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li><a href="gallery.html">Our Gallery</a>
+                  </li>
+                  <li><a href="team.html">Team</a>
+                  </li>
+                  <li><a href="contact.html">Contact Us</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- Social Link -->
+          <div class="widget social-link">
+              <h5 class="widget-title">Contact with us</h5>
+              <ul>
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fab fa-behance"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fab fa-google"></i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
